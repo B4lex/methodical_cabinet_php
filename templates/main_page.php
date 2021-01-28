@@ -6,9 +6,6 @@
         <title>Document</title>
     </head>
     <body>
-        <form method="GET">
-            <label for="name">Field: </label>
-            <input type="text" name="name">
-        </form>
+        <a href='/cabinet'><button>Личный кабинет</button></a>
     </body>
 </html>
