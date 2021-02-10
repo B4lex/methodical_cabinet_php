@@ -1,0 +1,23 @@
+<?
+    ob_start();
+    $title = 'Учебные материалы';
+    $sub_title = 'Учебные материалы';
+    require 'model/teaching_materials_list_model.php'
+?>
+    <section class='dynamic-content'>
+        <? foreach ($t_materials as $material): ?>
+            <div class='material-unit'>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title"><?=$material['title']?></h5>
+                        <p class="card-text"><?=$material['description']?></p>
+                        <a href="<?=$material['attached_file_link']?>" class="card-link">Ссылка на прикреплённый файл</a>
+                    </div>
+                </div>
+            </div>
+        <? endforeach ?>
+    </section>
+<?
+    $content = ob_get_clean();
+    require 'templates/cabinet/index.php';
+?> 

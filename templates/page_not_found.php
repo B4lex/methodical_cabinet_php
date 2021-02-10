@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>404</h1>
-    <p>Requested page not found.</p>
+    <p>Указаная вами страница не существует.</p>
 </body>
 </html>

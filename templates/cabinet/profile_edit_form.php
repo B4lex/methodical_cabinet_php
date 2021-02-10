@@ -1,46 +1,34 @@
-<? ob_start() ?>
+<?
+    $title = 'Общая информация';
+    $sub_title = 'Редактирование личной информации';
+    ob_start();
+    require 'controller/profile_edit_form_handler.php';
+    require 'model/current_user_data.php';
+?>
 <section class="dynamic-content">
     <form method="POST" enctype="multipart/form-data">
         <p class="form-floating">
+            <input type="text" name="full_name" class="form-control" value="<?= $current_user_data['full_name'] ?>">
             <label for="full_name">ФИО: </label>
-            <input type="text" name="full_name" class="form-control">
         </p>
         <p>
-            <label for="photo">Фото: </label>
-            <input type="file" name="photo"class="form-control">
+            <label for="photo">Фото: </label><br>
+            <img src=<?= $current_user_data['photo_path'] ?> style="height: 200px;" class="m-2">
+            <input type="file" name="photo" class="form-control">
         </p>
         <p class="form-floating">
+            <input type="text" name="qualification_category" class="form-control" value=<?= $current_user_data['qualification'] ?>>
             <label for="qualification_category">Квалификация: </label>
-            <input type="text" name="qualification_category" class="form-control">
         </p>
         <p class="form-floating">
+            <input type="text" name="teaching_rank" class="form-control" value=<?= $current_user_data['category'] ?>>
             <label for="teaching_rank">Категория: </label>
-            <input type="text" name="teaching_rank" class="form-control">
         </p>
         <p class="form-floating">
-            <label for="experience">Опыт: </label>
-            <input type="number" name="experience" class="form-control">
-        </p>
-        <p class="form-floating">
-            <label for="subject">Предмет: </label>
-            <input type="text" name="subject" class="form-control">
-        </p>
-        <p class="form-floating">
-            <label for="awards">Награды: </label>
-            <input type="text" name="awards" class="form-control">
-        </p>
-        <p class="form-floating">
-            <label for="social_links">Социальные сети: </label>
-            <input type="text" name="social_links" class="form-control">
-        </p>
-        <p class="form-floating">
-            <label for="yt_link">YouTube: </label>
-            <input type="text" name="yt_link" class="form-control">
-        </p>
+        <button type="submit" class="btn btn-primary mb-1">Применить изменения</button>
     </form>
 </section>
 <?
     $content = ob_get_clean();
-    $title = 'Редактирование личной информации';
     require 'templates/cabinet/index.php';
 ?>
