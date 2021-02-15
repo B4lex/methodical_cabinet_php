@@ -1,4 +1,5 @@
 <?
+    require 'utils/files.php';
     $MAX_FILE_SIZE = 10 * 1024 * 1024;
     $MEDIA_DIR = '/media/';
 
@@ -7,9 +8,9 @@
         if ($file['size'] < $MAX_FILE_SIZE) {
             $m_title = $_POST['title'];
             $m_description = $_POST['description'];
-            $attached_file_path = $MEDIA_DIR.$file['name'];
+            $expected_file_path = $MEDIA_DIR.$_SESSION['user_id'].'/scientific_materials/'.$file['name'];
+            $attached_file_path = save_file($file, $expected_file_path);
             require 'model/add_scientific_material_model.php';
-            move_uploaded_file($file['tmp_name'], $_SERVER['DOCUMENT_ROOT'].$attached_file_path);
         } else {
             $error_message = "Файл слишком велик. Максимальный размер 10 Мб.";
         }

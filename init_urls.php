@@ -36,6 +36,9 @@
         require_authorization('templates/cabinet/scientific_materials_list.php');
     });
 
+    $router->add('^/create_user$', function() {
+        require 'templates/cabinet/user_creation_form.php';
+    });
 
     $router->start();
 

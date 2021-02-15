@@ -10,6 +10,7 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title"><?=$material['title']?></h5>
+                        <h6 class="card-title">Автор материала: <?=$material['author_full_name']?></h6>
                         <p class="card-text"><?=$material['description']?></p>
                         <a href="<?=$material['attached_file_link']?>" class="card-link">Ссылка на прикреплённый файл</a>
                     </div>

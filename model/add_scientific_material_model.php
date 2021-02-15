@@ -1,11 +1,12 @@
 <?
     global $pdo;
-    $stmt = $pdo->prepare('INSERT INTO scientific_materials (title, description, attached_file_link)
-                           VALUES (:title, :description, :attached_file_path)');
+    $stmt = $pdo->prepare('INSERT INTO scientific_materials (title, description, attached_file_link, id_user)
+                           VALUES (:title, :description, :attached_file_path, :id_user)');
     $params = array(
         ':title' => $m_title,
         ':description' => $m_description,
-        ':attached_file_path' => $attached_file_path
+        ':attached_file_path' => $attached_file_path,
+        ':id_user' => $_SESSION['user_id']
     );
     try {
         $stmt->execute($params);
