@@ -8,6 +8,7 @@
         if ($file['size'] < $MAX_FILE_SIZE) {
             $m_title = $_POST['title'];
             $m_description = $_POST['description'];
+            $m_id_type = $_POST['type'];
             $expected_file_path = $MEDIA_DIR.$_SESSION['user_id'].'/scientific_materials/'.$file['name'];
             $attached_file_path = save_file($file, $expected_file_path);
             require 'model/add_scientific_material_model.php';

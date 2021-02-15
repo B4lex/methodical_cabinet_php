@@ -24,6 +24,7 @@
         }
         if ($success) {
             require 'model/profile_edit_model.php';
+            $success_message = 'Измения успешно сохранены.';
         }
     }
 ?>

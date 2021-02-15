@@ -7,8 +7,13 @@
     require 'model/teacher_options.php';
 ?>
 <section class="dynamic-content">
+    <? if (isset($success_message)): ?>
+    <div class="alert alert-success m-1" role="alert">
+        <?=$success_message ?>
+    </div>
+    <? endif ?>
     <? if (isset($error_message)): ?>
-    <div class="alert alert-danger mb-1" role="alert">
+    <div class="alert alert-danger m-1" role="alert">
         <?=$error_message ?>
     </div>
     <? endif ?>

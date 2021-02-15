@@ -3,6 +3,7 @@
     $title = 'Добавление учебного материала';
     $sub_title = 'Добавление учебного материала';
     require $_SERVER['DOCUMENT_ROOT'].'/controller/add_teaching_material_form_handler.php';
+    require 'model/material_types.php';
 ?>
 <section class="dynamic-content">
     <? if (isset($error_message)): ?>
@@ -19,6 +20,12 @@
             <input type="text" name="description" class="form-control" required>
             <label for="desription">Описание: </label>
         </p>
+        <label for="type">Тип: </label>
+            <select name="type" class='form-select'>
+                <? foreach ($teaching_material_types as $type): ?>
+                <option value="<?= $type['id'] ?>"><?= $type['name'] ?></option>
+                <? endforeach ?>
+            </select>
         <p>
             <label for="attached_file">Файл: </label>
             <input type="file" name="attached_file" class="form-control" required>

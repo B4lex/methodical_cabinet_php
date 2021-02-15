@@ -3,6 +3,7 @@
     $title = 'Добавление научного материала';
     $sub_title = 'Добавление научного материала';
     require $_SERVER['DOCUMENT_ROOT'].'/controller/add_scientific_material_form_handler.php';
+    require 'model/material_types.php';
 ?>
 <section class="dynamic-content">
     <? if (isset($error_message)): ?>
@@ -18,6 +19,14 @@
         <p class="form-floating">
             <input type="text" name="description" class="form-control" required>
             <label for="desription">Описание: </label>
+        </p>
+        <p>
+            <label for="type">Тип: </label>
+            <select name="type" class="form-select">
+                <? foreach ($scientific_material_types as $type): ?>
+                <option value="<?= $type['id'] ?>"><?= $type['name'] ?></option>
+                <? endforeach ?>
+            </select>
         </p>
         <p>
             <label for="attached_file">Файл: </label>
